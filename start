@@ -1,0 +1,5 @@
+#!/bin/sh 
+
+time=`date +'%s'`
+
+./script/core.sh 2>"log/log.${time}"

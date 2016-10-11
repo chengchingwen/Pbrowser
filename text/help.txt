@@ -1,0 +1,7 @@
+URL => go to url
+/S, /source => show the source code
+/L, /link => select a link to go
+/B, /bookmark => Bookmark
+/D, /download => select a link to download
+/H, /help => help page
+!${cmd} => execute the shell cmd

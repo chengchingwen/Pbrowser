@@ -1,0 +1,180 @@
++ export LANG=zh_TW.UTF-8
++ name=P_browser
++ cat ./text/terms.txt
++ terms='say yes.'
++ cat ./text/apology.txt
++ apology='Sorry. '
++ cat ./text/help.txt
++ help='URL => go to url
+/S, /source => show the source code
+/L, /link => select a link to go
+/B, /bookmark => Bookmark
+/D, /download => select a link to download
+/H, /help => help page
+!${cmd} => execute the shell cmd'
++ cat ./text/error.txt
++ error='Invalid Input
+Try /H for help message.'
++ homepage=google.com
++ tempdir=./tmp
++ date +%s
++ time=1475891708
++ textdialog='dialog --title P_browser --scrollbar'
++ pagedialog='dialog  --title P_browser --scrollbar --extra-button --extra-label Last_page --help-button --help-label Next_page'
++ cache=./history/cache.1475891708
++ download=./download
++ bookmark=./text/bookmark
++ mkdir ./history/cache.1475891708
++ mktemp ./history/cache.1475891708/current.page
+./script/core.sh: cannot create log: Is a directory
++ current=google.com
++ page=0
++ nonext=0
++ dialog --title 'terms and conditions of Use' --yesno 'say yes.' 25 100
++ ans=0
++ status=1
++ [ 0 -eq 0 ]
++ status=101
++ [ 101 -ne 1 ]
++ go_page google.com
++ . ./script/page.sh google.com
++ current=google.com
++ cat ./history/cache.1475891708/0.page
++ head -n1
+cat: ./history/cache.1475891708/0.page: No such file or directory
++ url=''
++ [ google.com = ]
+[: =: argument expected
++ [ -ne 0 ]
+[: -ne: unexpected operator
++ page=1
++ w3m google.com -dump
++ url=google.com
++ echo google.com
++ cat ./history/cache.1475891708/current.page
++ dialog --title P_browser --scrollbar --extra-button --extra-label Last_page --help-button --help-label Next_page --textbox ./history/cache.1475891708/current.page 25 125
++ next=0
++ nonext=1
++ next=0
++ return 103
++ return 103
++ status=103
++ [ 103 -ne 1 ]
++ input_flow
++ retcode=1
++ exec
++ dialog --title 'P browser' --inputbox google.com 10 50
++ result=/L
++ exitcode=0
++ exec
++ [ 0 -eq 0 ]
++ curl -s --head /L
++ head -n1
++ grep 'HTTP/1\.[01] [23]..'
++ [ 1 -eq 0 ]
++ echo /L
++ link_box google.com
++ . ./script/link.sh google.com
++ lynx -dump google.com -listonly
++ grep '[0-9]'
++ list='   1. http://www.google.com.tw/imghp?hl=zh-TW&tab=wi
+   2. http://maps.google.com.tw/maps?hl=zh-TW&tab=wl
+   3. https://play.google.com/?hl=zh-TW&tab=w8
+   4. http://www.youtube.com/?gl=TW&tab=w1
+   5. http://news.google.com.tw/nwshp?hl=zh-TW&tab=wn
+   6. https://mail.google.com/mail/?tab=wm
+   7. https://drive.google.com/?tab=wo
+   8. https://www.google.com.tw/intl/zh-TW/options/
+   9. http://www.google.com.tw/history/optout?hl=zh-TW
+  10. http://www.google.com.tw/preferences?hl=zh-TW
+  11. https://accounts.google.com/ServiceLogin?hl=zh-TW&passive=true&continue=http://www.google.com.tw/%3Fgfe_rd%3Dcr%26ei%3DTXD9V-OKH-TUmQXA0KuIAg
+  12. http://www.google.com.tw/advanced_search?hl=zh-TW&authuser=0
+  13. http://www.google.com.tw/language_tools?hl=zh-TW&authuser=0
+  14. http://www.google.com.tw/setprefs?sig=0_-v-JmKs2JEnpJQ3Zu3FBm4r7F2c%3D&hl=en&source=homepage
+  15. http://www.google.com.tw/intl/zh-TW/ads/
+  16. http://www.google.com.tw/intl/zh-TW/services/
+  17. http://www.google.com.tw/intl/zh-TW/about.html
+  18. http://www.google.com.tw/setprefdomain?prefdom=US&sig=__B8X7HH12cDnszNmyyTu-Jj-dMKw%3D
+  19. http://www.google.com.tw/intl/zh-TW/policies/privacy/
+  20. http://www.google.com.tw/intl/zh-TW/policies/terms/'
++ exec
++ dialog --title P_browser --scrollbar --menu Links: 0 0 100 1. 'http://www.google.com.tw/imghp?hl=zh-TW&tab=wi' 2. 'http://maps.google.com.tw/maps?hl=zh-TW&tab=wl' 3. 'https://play.google.com/?hl=zh-TW&tab=w8' 4. 'http://www.youtube.com/?gl=TW&tab=w1' 5. 'http://news.google.com.tw/nwshp?hl=zh-TW&tab=wn' 6. 'https://mail.google.com/mail/?tab=wm' 7. 'https://drive.google.com/?tab=wo' 8. https://www.google.com.tw/intl/zh-TW/options/ 9. 'http://www.google.com.tw/history/optout?hl=zh-TW' 10. 'http://www.google.com.tw/preferences?hl=zh-TW' 11. 'https://accounts.google.com/ServiceLogin?hl=zh-TW&passive=true&continue=http://www.google.com.tw/%3Fgfe_rd%3Dcr%26ei%3DTXD9V-OKH-TUmQXA0KuIAg' 12. 'http://www.google.com.tw/advanced_search?hl=zh-TW&authuser=0' 13. 'http://www.google.com.tw/language_tools?hl=zh-TW&authuser=0' 14. 'http://www.google.com.tw/setprefs?sig=0_-v-JmKs2JEnpJQ3Zu3FBm4r7F2c%3D&hl=en&source=homepage' 15. http://www.google.com.tw/intl/zh-TW/ads/ 16. http://www.google.com.tw/intl/zh-TW/services/ 17. http://www.google.com.tw/intl/zh-TW/about.html 18. 'http://www.google.com.tw/setprefdomain?prefdom=US&sig=__B8X7HH12cDnszNmyyTu-Jj-dMKw%3D' 19. http://www.google.com.tw/intl/zh-TW/policies/privacy/ 20. http://www.google.com.tw/intl/zh-TW/policies/terms/
++ result=20.
++ exitcode=0
++ exec
++ [ 0 -eq 0 ]
++ echo 1. 'http://www.google.com.tw/imghp?hl=zh-TW&tab=wi' 2. 'http://maps.google.com.tw/maps?hl=zh-TW&tab=wl' 3. 'https://play.google.com/?hl=zh-TW&tab=w8' 4. 'http://www.youtube.com/?gl=TW&tab=w1' 5. 'http://news.google.com.tw/nwshp?hl=zh-TW&tab=wn' 6. 'https://mail.google.com/mail/?tab=wm' 7. 'https://drive.google.com/?tab=wo' 8. https://www.google.com.tw/intl/zh-TW/options/ 9. 'http://www.google.com.tw/history/optout?hl=zh-TW' 10. 'http://www.google.com.tw/preferences?hl=zh-TW' 11. 'https://accounts.google.com/ServiceLogin?hl=zh-TW&passive=true&continue=http://www.google.com.tw/%3Fgfe_rd%3Dcr%26ei%3DTXD9V-OKH-TUmQXA0KuIAg' 12. 'http://www.google.com.tw/advanced_search?hl=zh-TW&authuser=0' 13. 'http://www.google.com.tw/language_tools?hl=zh-TW&authuser=0' 14. 'http://www.google.com.tw/setprefs?sig=0_-v-JmKs2JEnpJQ3Zu3FBm4r7F2c%3D&hl=en&source=homepage' 15. http://www.google.com.tw/intl/zh-TW/ads/ 16. http://www.google.com.tw/intl/zh-TW/services/ 17. http://www.google.com.tw/intl/zh-TW/about.html 18. 'http://www.google.com.tw/setprefdomain?prefdom=US&sig=__B8X7HH12cDnszNmyyTu-Jj-dMKw%3D' 19. http://www.google.com.tw/intl/zh-TW/policies/privacy/ 20. http://www.google.com.tw/intl/zh-TW/policies/terms/
++ grep '^20. '
++ cut '-d ' -f 2
++ xargs -n2 echo
++ local link=http://www.google.com.tw/intl/zh-TW/policies/terms/
++ current=http://www.google.com.tw/intl/zh-TW/policies/terms/
++ return 101
++ return 101
++ retcode=101
++ return 101
++ status=101
++ [ 101 -ne 1 ]
++ go_page http://www.google.com.tw/intl/zh-TW/policies/terms/
++ . ./script/page.sh http://www.google.com.tw/intl/zh-TW/policies/terms/
++ current=http://www.google.com.tw/intl/zh-TW/policies/terms/
++ cat ./history/cache.1475891708/1.page
++ head -n1
++ url=google.com
++ [ http://www.google.com.tw/intl/zh-TW/policies/terms/ = google.com ]
++ [ 0 -ne 0 ]
++ page=2
++ w3m http://www.google.com.tw/intl/zh-TW/policies/terms/ -dump
++ url=http://www.google.com.tw/intl/zh-TW/policies/terms/
++ echo http://www.google.com.tw/intl/zh-TW/policies/terms/
++ cat ./history/cache.1475891708/current.page
++ dialog --title P_browser --scrollbar --extra-button --extra-label Last_page --help-button --help-label Next_page --textbox ./history/cache.1475891708/current.page 25 125
++ next=0
++ nonext=1
++ next=0
++ return 103
++ return 103
++ status=103
++ [ 103 -ne 1 ]
++ input_flow
++ retcode=1
++ exec
++ dialog --title 'P browser' --inputbox http://www.google.com.tw/intl/zh-TW/policies/terms/ 10 50
++ result=''
++ exitcode=0
++ exec
++ [ 0 -eq 0 ]
++ curl -s --head ''
++ head -n1
++ grep 'HTTP/1\.[01] [23]..'
++ [ 1 -eq 0 ]
++ echo
++ go_page http://www.google.com.tw/intl/zh-TW/policies/terms/
++ . ./script/page.sh http://www.google.com.tw/intl/zh-TW/policies/terms/
++ current=http://www.google.com.tw/intl/zh-TW/policies/terms/
++ cat ./history/cache.1475891708/2.page
++ head -n1
++ url=http://www.google.com.tw/intl/zh-TW/policies/terms/
++ [ http://www.google.com.tw/intl/zh-TW/policies/terms/ = http://www.google.com.tw/intl/zh-TW/policies/terms/ ]
++ dialog --title P_browser --scrollbar --extra-button --extra-label Last_page --help-button --help-label Next_page --textbox ./history/cache.1475891708/current.page 25 125
++ next=0
++ nonext=0
++ next=0
++ return 103
++ return 103
++ retcode=103
++ return 103
++ status=103
++ [ 103 -ne 1 ]
++ input_flow
++ retcode=1
++ exec
++ dialog --title 'P browser' --inputbox http://www.google.com.tw/intl/zh-TW/policies/terms/ 10 50
++ result=''
++ exitcode=1
++ exec
++ [ 1 -eq 0 ]
++ return 1
++ status=1
++ [ 1 -ne 1 ]
++ dialog --title P_browser --scrollbar --msgbox 'goodbye~' 10 50
