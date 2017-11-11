@@ -14,6 +14,10 @@ pagedialog="dialog  --title ${name} --scrollbar --extra-button --extra-label Las
 cache="./history/cache.${time}"
 download='./download'
 bookmark='./text/bookmark'
+if [ ! -d "./history" ]; then
+    # Control will enter here if $DIRECTORY doesn't exist.
+    mkdir "history"
+fi
 mkdir "${cache}"
 mktemp "${cache}/current.page" >> log
 current=$homepage
